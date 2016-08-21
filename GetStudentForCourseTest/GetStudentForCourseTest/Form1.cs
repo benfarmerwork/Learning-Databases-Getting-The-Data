@@ -34,15 +34,15 @@ namespace GetStudentForCourseTest
         }
         private void btnCourses_Click(object sender, EventArgs e)
         {
-            var courseAdapter = new Learning_databasesDataSetTableAdapters.StudentsTableAdapter();
+            var courseAdapter = new Learning_databasesDataSetTableAdapters.CoursesTableAdapter();
             var courseTable = courseAdapter.GetData();
 
             StringBuilder allClasses = new StringBuilder();
 
             // Loop through each returned student row and add name/second name to string
-            foreach (var ClassesRow in courseTable.Rows.Cast<Learning_databasesDataSet.coursesRow>())
+            foreach (var coursesRow in courseTable.Rows.Cast<Learning_databasesDataSet.CoursesRow>())
             {
-                allClasses.AppendLine(ClassesRow.Name + " " + ClassesRow.SecondName);
+                allClasses.AppendLine(coursesRow.Description );
             }
 
             MessageBox.Show(allClasses.ToString());
